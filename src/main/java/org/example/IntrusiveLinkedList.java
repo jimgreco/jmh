@@ -28,6 +28,20 @@ public class IntrusiveLinkedList {
         }
     }
 
+    public void removeOrder(IntrusiveLinkedListItem order) {
+        if (order == head) {
+            head = order.next;
+        }
+        if (order.prev != null) {
+            order.prev.next = order.next;
+        }
+        if (order.next != null) {
+            order.next.prev = order.prev;
+        }
+        order.prev = null;
+        order.next = null;
+    }
+
     public void removeOrder(int id) {
         IntrusiveLinkedListItem prev = null;
         var current = head;
